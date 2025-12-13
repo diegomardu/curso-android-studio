@@ -3,10 +3,13 @@ package com.example.cursoudemy;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -20,13 +23,11 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText campoNome;
-    private TextView textoResultado;
-    private TextInputEditText campoEmail;
-    private RadioButton sexoMasculino, sexoFeminino;
+    private ToggleButton toogleSenha;
+    private Switch aSwitch;
+    private TextView textResultado;
 
-    private CheckBox checkVerde, checkBranco, checkVermelho;
-    private RadioGroup sexoGroup;
+    private CheckBox checkBoxSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,93 +40,48 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        this.campoNome = findViewById(R.id.editNome);
-        this.textoResultado = findViewById(R.id.textResult);
-        this.campoEmail = findViewById(R.id.editEmail);
-
-        //checkBox
-        this.checkVerde = findViewById(R.id.checkVerde);
-        this.checkBranco = findViewById(R.id.checkBranco);
-        this.checkVermelho = findViewById(R.id.checkVermelho);
-
-        //RadioButton
-        this.sexoFeminino = findViewById(R.id.radioButtonFeminino);
-        this.sexoMasculino = findViewById(R.id.radioButtonMasculino);
-
-        //RadioGroup
-        this.sexoGroup = findViewById(R.id.radioGroupSexo);
-
-        radioButton();
+        this.toogleSenha = findViewById(R.id.toggleSenha);
+        this.aSwitch = findViewById(R.id.senha);
+        this.textResultado = findViewById(R.id.textResultado);
+        this.checkBoxSenha = findViewById(R.id.checkSenha);
 
     }
-
-    public void radioButton(){
-
-        sexoGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(@NonNull RadioGroup group, int checkedId) {
-                if(checkedId == R.id.radioButtonMasculino){
-                    textoResultado.setText("Masculino");
-                }else{
-                    textoResultado.setText("Feminino");
-                }
-
-            }
-        });
-
-        /*String texto = "";
-
-        if(sexoMasculino.isChecked()){
-            String sexoSelecionado = sexoMasculino.getText().toString();
-            texto = sexoSelecionado;
-        }else{
-            String sexoSelecionado = sexoFeminino.getText().toString();
-            texto = sexoSelecionado;
-        }*/
-
-
-
-
-    }
-
-    public void checkbox(){
-
-        String texto = "";
-
-        if(checkVerde.isChecked()){
-            String corSelecionado = checkVerde.getText().toString();
-            texto = corSelecionado;
-        }
-
-        if(checkBranco.isChecked()){
-            String corSelecionado  = checkBranco.getText().toString();
-            texto = corSelecionado;
-        }
-
-        if(checkVermelho.isChecked()){
-            String corSelecionado  = checkVermelho.getText().toString();
-            texto = corSelecionado;
-        }
-
-        textoResultado.setText(texto);
-    }
-
-
 
     public void enviar(View view){
-        //radioButton();
-        //checkbox();
 
-        /*String nome = campoNome.getText().toString();
-        String email = campoEmail.getText().toString();
-        textoResultado.setText("nome: " + nome + " email: " + email);*/
+        /*if(aSwitch.isChecked()){
+            textResultado.setText("Switch ligado");
+        }else{
+            textResultado.setText("Switch desligado");
+        }*/
+
+        if(checkBoxSenha.isChecked()){
+            textResultado.setText("checkBox ligado");
+        }else{
+            textResultado.setText("checkBox desligado");
+        }
+
+        adicionarListener();
+
+        /*if(toogleSenha.isChecked()){
+            textResultado.setText("toogle ligado");
+        }else{
+            textResultado.setText("toogle desligado");
+        }*/
+
     }
 
-    public void limpar(View view){
-        campoEmail.setText("");
-        campoNome.setText("");
-        textoResultado.setText("resultado");
+    public void adicionarListener(){
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    textResultado.setText("ligado");
+                }else{
+                    textResultado.setText("desligado");
+                }
+            }
+        });
     }
-
 
 }

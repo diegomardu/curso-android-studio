@@ -4,95 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/editNome"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:ems="10"
-        android:hint="Digite seu nome"
-        android:inputType="text" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Digite seu e-mail" />
-    </com.google.android.material.textfield.TextInputLayout>
+    android:padding="20dp"
+    tools:context=".MainActivity" >
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cores" />
+        android:text="Switch"
+        android:textSize="18sp" />
 
-    <CheckBox
-        android:id="@+id/checkVerde"
-        android:layout_width="match_parent"
+    <Switch
+        android:id="@+id/senha"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Verde" />
-
-    <CheckBox
-        android:id="@+id/checkBranco"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Branco" />
-
-    <CheckBox
-        android:id="@+id/checkVermelho"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Vermelho" />
+        android:checked="false"
+        android:text="Lembrar senha"
+        android:textOff="Desligado"
+        android:textOn="Ligado"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sexo" />
+        android:text="Toogle Button"
+        android:textSize="18sp" />
 
-    <RadioGroup
-        android:id="@+id/radioGroupSexo"
+    <ToggleButton
+        android:id="@+id/toggleSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        android:textOff="Desligado"
+        android:textOn="Ligado"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:text="Checkbox"
+        android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/radioButtonMasculino"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="masculino" />
-
-        <RadioButton
-            android:id="@+id/radioButtonFeminino"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="feminino" />
-    </RadioGroup>
+    <CheckBox
+        android:id="@+id/checkSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lembrar Senha" />
 
     <Button
-        android:id="@+id/enviarButton"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="enviar"
-        android:text="ENVIAR" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="limpar"
-        android:text="LIMPAR" />
+        android:text="Enviar" />
 
     <TextView
-        android:id="@+id/textResult"
+        android:id="@+id/textResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="resultado" />
-
+        android:text="Resultado" />
 </LinearLayout>
