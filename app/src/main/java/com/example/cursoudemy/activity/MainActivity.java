@@ -13,12 +13,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cursoudemy.R;
 import com.example.cursoudemy.activity.adapter.Adapter;
+import com.example.cursoudemy.activity.adapter.PostagemAdapter;
 import com.example.cursoudemy.activity.model.Filme;
+import com.example.cursoudemy.activity.model.Postagem;
 import com.example.cursoudemy.activity.model.RecyclerItemClickListener;
 
 import java.util.ArrayList;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ListView listLocais;
+    private List<Postagem> postagens = new ArrayList<>();
     private String[] itens = {
             "Angra dos Reis", "Caldas novas",
             "Campos do Jordão","Costa do Sauipe","Tiradentes",
@@ -52,6 +56,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
         this.recyclerView = findViewById(R.id.recyclerView);
+
+        //Card View
+
+        //Define Layout
+        RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this);
+
+        //Implementação muda a orietação do layout para horizontal
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        //layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+        //Implementação de Grid
+        //GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
+
+        //Define adaper
+        this.prepararPostagem();
+        PostagemAdapter adapter = new PostagemAdapter(postagens);
+        recyclerView.setAdapter( adapter );
+
+
+
         /*this.listLocais = findViewById(R.id.listLocais);
 
         //cria adaptador para a lista
@@ -76,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-         */
+
         //Listagem de filmes;
         this.criarFilmes();
 
@@ -124,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                 )
-        );
+        );*/
 
 
     }
@@ -174,6 +199,24 @@ public class MainActivity extends AppCompatActivity {
 
         filme = new Filme("Carros ","Animação","2001");
         this.listaFilmes.add(filme);
+    }
+
+    public void prepararPostagem(){
+        Postagem postagem = new Postagem("Diego Duarte","Viagem Legar", R.drawable.imagem1);
+
+        postagens.add(postagem);
+
+        postagem = new Postagem("Hotel Duarte","Viaje, aproveite nossos descontos", R.drawable.imagem2);
+
+        postagens.add(postagem);
+
+        postagem = new Postagem("Cuca Beludo","#Paris", R.drawable.imagem3);
+
+        postagens.add(postagem);
+
+        postagem = new Postagem("Seu Cuca é EU","NOOOOOOSSA", R.drawable.imagem4);
+
+        postagens.add(postagem);
     }
 
 }
